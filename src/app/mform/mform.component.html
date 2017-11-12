@@ -1,0 +1,18 @@
+<p>
+  mform works!
+</p>
+
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="mf">
+  <input type="number" formControlName="cardNumber">
+  <br>
+  <input type="number" formControlName="csc">
+  <p *ngIf="!mf.get('csc').valid && mf.get('csc').touched">
+    {{ mf.get('csc').errors | json }}
+  </p>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+
+<pre>
+  {{mf.errors | json}}
+</pre>
